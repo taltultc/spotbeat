@@ -85,6 +85,9 @@ RCT_EXPORT_METHOD(startDetect)
         NSString *r = nil;
 
         NSLog(@"%@", result);
+        [self.bridge.eventDispatcher
+         sendAppEventWithName:@"ACREvent"
+         body:@{@"message": @"Found", @"data": result}];
 
         if ([[jsonObject valueForKeyPath: @"status.code"] integerValue] == 0) {
             if ([jsonObject valueForKeyPath: @"metadata.music"]) {
@@ -143,9 +146,7 @@ RCT_EXPORT_METHOD(startDetect)
             //NSLog(@"%@", result);
             r = result;
         }
-        [self.bridge.eventDispatcher
-         sendAppEventWithName:@"ACREvent"
-         body:@{@"message": @"Found", @"data": r}];
+
 
     });
 }

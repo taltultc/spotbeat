@@ -39,10 +39,10 @@ function getInitialState() {
 class SpotBeat extends Component {
   componentDidMount() {
     ACR.startDetect();
-    var subscription = NativeAppEventEmitter.addListener(
-      'ACREvent',
-      (data) => console.log(data)
-    );
+    //var subscription = NativeAppEventEmitter.addListener(
+    //  'ACREvent',
+    //  (data) => console.log(data)
+    //);
   }
 
   render() {
@@ -50,7 +50,7 @@ class SpotBeat extends Component {
     return (
       <Provider store={store}>
           <View style={styles.container}>
-            <Main/>
+            <Main {...this.props}/>
           </View>
        </Provider>
     );

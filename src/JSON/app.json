@@ -1,7 +1,11 @@
 {
-  "compilerOptions": {
-    "module": "commonjs",
-    "target": "es5",
-    "sourceMap": true
-  }
+  "song_id": [
+    {
+      "startTime": 3000,
+      "duration": 20000,
+      "type": "facts",
+      "text": "Cool fact"
+    }
+
+  ]
 }

@@ -8,5 +8,6 @@ import keyMirror from 'key-mirror';
 
 export default keyMirror({
   GET_SONGS: null,
-
+  UPDATE_CURRENT: null,
+  UPDATE_CURRENT_TIME: null,
 });

@@ -30,6 +30,8 @@ import AppInitialState from './reducers/app/appInitialState';
 import Main from './screens/main';
 const RouterWithRedux = connect()(Router);
 
+var FactView = require('./components/FactsView');
+
 function getInitialState() {
   return {
     app: new AppInitialState(),
@@ -51,8 +53,11 @@ class SpotBeat extends Component {
       <Provider store={store}>
           <View style={styles.container}>
             <Main {...this.props}/>
+            <FactView title="Very cool title" body="Did you know that blabla blabla blabla blabla blabla blabla blabla"/>
           </View>
        </Provider>
+
+      </Provider>
     );
   }
 }

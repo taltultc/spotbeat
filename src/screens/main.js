@@ -70,13 +70,14 @@ class Main extends Component {
     var subscription = NativeAppEventEmitter.addListener(
       'ACREvent',
       (data) => {
-        console.log("Main",data);
+        var d = JSON.parse(data.data);
+        console.log("Main",d.metadata);
 
-        if(data.metadata){
-          _this.props.actions.updateCurrentSongId(data.metadata.music[0].acrid);
-          _this.props.actions.updateCurrentTimestamp(data.metadata.music[0].play_offset_ms);
-          _this.time = data.metadata.music[0].play_offset_ms;
-          _this.songID = data.metadata.music[0].acrid;
+        if(d.metadata){
+          _this.props.actions.updateCurrentSongId(d.metadata.music[0].acrid);
+          _this.props.actions.updateCurrentTimestamp(d.metadata.music[0].play_offset_ms);
+          _this.time = d.metadata.music[0].play_offset_ms;
+          _this.songID = d.metadata.music[0].acrid;
         }
       }
     );

@@ -45,7 +45,7 @@ var styles = StyleSheet.create({
         flex: 1,
     },
     bodyContainer:{
-        flex: 1,
+        width: 250,
         flexDirection: 'row',
         flexWrap: 'wrap'
     },

@@ -3,7 +3,8 @@
  */
 const {
   GET_SONGS,
-  UPDATE_CURRENT
+  UPDATE_CURRENT,
+  UPDATE_CURRENT_TIME,
   } = require("../actionTypes").default;
 var obj  = require('../../JSON/app.json');
 

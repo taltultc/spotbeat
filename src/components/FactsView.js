@@ -25,7 +25,6 @@ var FactsView = React.createClass({
     propTypes: {
         title: React.PropTypes.string,
         body : React.PropTypes.string,
-        factImageUrl : React.PropTypes.string,
     },
 
     render() {

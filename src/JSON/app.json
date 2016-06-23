@@ -5,6 +5,12 @@
       "duration": 20000,
       "type": "facts",
       "text": "Cool fact"
+    },
+    {
+      "startTime": 8000,
+      "duration": 20000,
+      "type": "facts",
+      "text": "Cool fact"
     }
 
   ]

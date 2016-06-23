@@ -9,6 +9,10 @@ import * as appActions from '../reducers/app/appActions';
 import Dimensions from 'Dimensions';
 import ACR from 'ACR';
 import React, { Component } from 'react';
+var FactView = require('../components/FactsView');
+import GifView from '../components/GifView';
+import TriviaView from '../components/TriviaView';
+
 const {
   GET_SONGS
   } = require("../reducers/actionTypes").default;
@@ -52,7 +56,11 @@ function mapDispatchToProps(dispatch) {
 class Main extends Component {
   constructor(props){
     super(props);
+    this.state = {
+      currentComp:""
+    }
     this.time = 0;
+    this.interaction = "";
     this.props.actions.getInitData();
   }
   componentDidMount() {
@@ -71,13 +79,23 @@ class Main extends Component {
 
     setInterval(()=>{
       //console.log("ppppp",_this.props.app.get("events").get("song_id").get(0).get("startTime"));
-      let s = _this.props.app.get("events").get("song_id").get(0).get("startTime");
-
-      if(_this.time = s ||
+      var size = _this.props.app.get("events").get("song_id").toJS();
+      for(var i=0;i<size.length;i++){
+        let s = _this.props.app.get("events").get("song_id").get(i).get("startTime");
+        if(_this.time == s ||
           ( (_this.time - 1000) < s &&  s < (_this.time + 2000))
-      ){
+        ){
           //alert("trigger event");
+            if(_this.props.app.get("events").get("song_id").get(i).get("type") == "facts"){
+              _this.setState({currentComp:'FactsView'});
+            }else if(_this.props.app.get("events").get("song_id").get(i).get("type") == "trivia"){
+              _this.setState({currentComp:'Trivia'});
+            }
+        }
       }
+
+
+
       _this.time+=1000;
     },1000)
   }
@@ -88,10 +106,25 @@ class Main extends Component {
     this.time = time;
 
   }
+  componentWillReceiveProps(nextProps) {
+    this.getScene();
+  }
+  getScene(){
+    if(this.state.currentComp == "FactsView"){
+      return(
+        <FactView title="sdfsd" body="body" />
+      );
+    }else if(this.state.currentComp == "Trivia"){
+      return(
+        <TriviaView/>
+      );
+    }
+
+  }
   render() {
     return(
       <View>
-        <Text>Main</Text>
+        {this.getScene()}
       </View>
     );
   }

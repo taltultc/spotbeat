@@ -100,10 +100,7 @@ LyricsView.propTypes= {
 }
 
 LyricsView.defaultProps ={
-    lyricsArray : [{"startTime":0,"value":"Hello first line"},
-                   {"startTime":2000,"value":"Yoooooo secondLine secondLine "},
-                    {"startTime":4000,"value":"Yoooooo thirdLine"},
-                    {"startTime":6000,"value":"Yoooooo forthLine"}   ],
+    lyricsArray : [],
     initialTime : 0,
 }
 

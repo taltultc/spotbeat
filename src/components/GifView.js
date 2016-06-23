@@ -13,10 +13,16 @@ import {
 
 export default class GifView extends React.Component {
 
+
+
     render() {
         return (
             <View style={styles.container}>
-                <Image source={{uri: this.props.gifUrl}}/>
+                <Image
+                    style={styles.image}
+                    source={{uri:this.props.gifUrl}}
+                />
+
             </View>
         );
     }
@@ -28,6 +34,13 @@ GifView.propTypes = {
 
 var styles = StyleSheet.create({
     container: {
-        flex: 1
+        flex: 1,
+        width : 240,
+        height : 240,
+    },
+
+    image :{
+        width : 240,
+        height : 240,
     }
 });

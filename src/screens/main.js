@@ -159,7 +159,7 @@ class Main extends Component {
     return(
       <View>
         {this.getScene()}
-        <LyricsView initialTime={this.time} lyricsArray={this.props.app.get("lyrics").get(this.songID)}/>
+        <LyricsView style={styles.lyrics} initialTime={this.time} lyricsArray={this.props.app.get("lyrics").get(this.songID)}/>
       </View>
     );
   }
@@ -183,6 +183,9 @@ var styles = StyleSheet.create({
     color:"white",
     fontSize:40,
     marginLeft:63,
+  },
+  lyrics: {
+
   }
 });
 

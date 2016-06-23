@@ -11,19 +11,18 @@ import {
 
 } from 'react-native'
 
-export default class GifView extends React.Component {
+export default class FactsView extends React.Component {
 
     render() {
         return (
             <View style={styles.container}>
-                <Image source={{uri: this.props.gifUrl}}/>
             </View>
         );
     }
 }
 
 GifView.propTypes = {
-    gifUrl: React.PropTypes.string
+
 }
 
 var styles = StyleSheet.create({

@@ -157,8 +157,10 @@ class Main extends Component {
   render() {
     
     return(
-      <View>
-        {this.getScene()}
+      <View style={styles.container}>
+        <View style={styles.sceneContainer}>
+          {this.getScene()}
+        </View>
         <LyricsView style={styles.lyrics} initialTime={this.time} lyricsArray={this.props.app.get("lyrics").get(this.songID)}/>
       </View>
     );
@@ -170,6 +172,9 @@ var styles = StyleSheet.create({
     flex:1,
     borderTopWidth: 2,
     borderBottomWidth:2
+  },
+  sceneContainer: {
+    height: 250,
   },
   btn:{
     backgroundColor:"blue",

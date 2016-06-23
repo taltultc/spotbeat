@@ -4,7 +4,7 @@
       "startTime": 30000,
       "type": "facts", // facts, trivia, gif, lyrics
       "title": "Fun Fact",
-      "body": "The sqaure root of 69 is 8.30662"
+      "body": "The sqaure root of 69 is actually 8.30662"
     },
     {
       "startTime": 47000,
@@ -21,7 +21,7 @@
         "Aliza",
         "Martin Konicek"
       ],
-      "correctAnswerIndex": 2
+      "correctAnswerIndex": 1
     },
     {
       "startTime": 80000,

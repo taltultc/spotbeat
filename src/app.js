@@ -40,7 +40,7 @@ function getInitialState() {
 
 class SpotBeat extends Component {
   componentDidMount() {
-
+    console.disableYellowBox = true;
     // ACR.startDetect();
   }
 

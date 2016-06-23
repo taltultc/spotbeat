@@ -139,6 +139,8 @@ TriviaView.propTypes = {
 var styles = StyleSheet.create({
     container: {
         flex: 1,
+        marginTop: 20,
+        alignSelf: 'center',
         justifyContent: 'center',
         width: 250,
         borderColor: "#ccc",

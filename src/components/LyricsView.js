@@ -79,6 +79,7 @@ export default class LyricsView extends React.Component {
                       ref={(listView) => { this._listView = listView;}}
                       dataSource={this.state.dataSource}
                       renderRow={this.renderRow.bind(this)}
+                      enableEmptySections={true}
                       >
             </ListView>
         )
@@ -106,8 +107,9 @@ LyricsView.defaultProps ={
 
 var styles = StyleSheet.create({
     lyricsContainer:{
-        height: 500,
+        height: 180,
         padding: 10,
+        alignSelf:"flex-end"
     },
 
     selectLine:{

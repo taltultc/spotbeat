@@ -109,7 +109,8 @@ LyricsView.defaultProps ={
 
 var styles = StyleSheet.create({
     lyricsContainer:{
-        height : 50
+        height: 500,
+        padding: 10,
     },
 
     selectLine:{

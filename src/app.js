@@ -40,7 +40,7 @@ function getInitialState() {
 
 class SpotBeat extends Component {
   componentDidMount() {
-    ACR.startDetect();
+    // ACR.startDetect();
 
   }
 

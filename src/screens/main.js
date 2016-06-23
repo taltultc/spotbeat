@@ -9,6 +9,7 @@ import * as appActions from '../reducers/app/appActions';
 import Dimensions from 'Dimensions';
 import ACR from 'ACR';
 import React, { Component } from 'react';
+import LyricsView from '../components/LyricsView'
 var FactView = require('../components/FactsView');
 import GifView from '../components/GifView';
 import TriviaView from '../components/TriviaView';
@@ -108,6 +109,7 @@ class Main extends Component {
 
       _this.time+=1000;
     },1000)
+
   }
   componentWillReceiveProps(nextProps){
     console.log("currentSongId",nextProps.app.get("currentSongId"));
@@ -141,9 +143,11 @@ class Main extends Component {
 
   }
   render() {
+    
     return(
       <View>
         {this.getScene()}
+        <LyricsView initialTime={this.time} lyricsArray={this.props.app.get("lyrics").get(this.songID)}/>
       </View>
     );
   }

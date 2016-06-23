@@ -3,9 +3,44 @@
     {
       "startTime": 3000,
       "duration": 20000,
-      "type": "facts",
-      "text": "Cool fact"
+      "type": "facts", // facts, trivia, gif, lyrics
+      "title": "my tile",
+      "body": "my body",
+      "imageUrl": "http://"
+    },
+    {
+      "startTime": 3000,
+      "duration": 20000,
+      "type": "gif", // facts, trivia, gif, lyrics
+      "gifUrl": "http://"
+    },
+    {
+      "startTime": 3000,
+      "duration": 20000,
+      "type": "trivia", // facts, trivia, gif, lyrics
+      "question": "What's my name?",
+      "answers": [
+        "La la la",
+        "Rihana",
+        "3",
+        "4"
+      ],
+      "correctAnswerIndex": 2
+    },
+    {
+      "startTime": 3000,
+      "duration": 20000,
+      "type": "lyrics", // facts, trivia, gif, lyrics
+      "lyricsArray": [
+        {
+          "startTime": 2000,
+          "value": "La la la"
+        },
+        {
+          "startTime": 3000,
+          "value": "What's my name"
+        }
+      ]
     }
-
   ]
 }

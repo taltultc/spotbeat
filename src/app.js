@@ -31,6 +31,7 @@ import Main from './screens/main';
 const RouterWithRedux = connect()(Router);
 
 var FactView = require('./components/FactsView');
+import LyricsView from './components/LyricsView'
 
 function getInitialState() {
   return {
@@ -53,11 +54,9 @@ class SpotBeat extends Component {
       <Provider store={store}>
           <View style={styles.container}>
             <Main {...this.props}/>
-            <FactView title="Very cool title" body="Did you know that blabla blabla blabla blabla blabla blabla blabla"/>
+            <LyricsView></LyricsView>
           </View>
        </Provider>
-
-      </Provider>
     );
   }
 }

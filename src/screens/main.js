@@ -28,7 +28,8 @@ import {
   NativeAppEventEmitter,
   View,
   TouchableOpacity,
-  ScrollView
+  ScrollView,
+  TouchableHighlight
 } from 'react-native';
 
 const actions = [
@@ -126,7 +127,7 @@ class Main extends Component {
       let eventData = this.props.app.get("events").get(this.songID).get(this.state.index);
       if(this.state.currentComp == "FactsView"){
         return(
-          <FactView title="sdfsd" body="body" />
+          <FactView title={eventData.get("title")} body={eventData.get("body")} />
         );
       }else if(this.state.currentComp == "Trivia"){
 
@@ -137,8 +138,19 @@ class Main extends Component {
         <GifView gifUrl={eventData.get("gifUrl")}/>
       }
 
+    }else{
+      return(
+        <View>
+        <TouchableHighlight style={styles.btn} onPress={this._startDetect}>
+          <Text style={styles.btnPlay}>Play</Text>
+        </TouchableHighlight>
+          </View>
+      );
     }
 
+  }
+  _startDetect(){
+    ACR.startDetect();
   }
   render() {
     return(
@@ -155,6 +167,19 @@ var styles = StyleSheet.create({
     borderTopWidth: 2,
     borderBottomWidth:2
   },
+  btn:{
+    backgroundColor:"blue",
+    width:200,
+    height:200,
+    borderRadius:100,
+  },
+  btnPlay:{
+    marginTop:80,
+    width:100,
+    color:"white",
+    fontSize:40,
+    marginLeft:63,
+  }
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Main);

@@ -30,6 +30,8 @@ import AppInitialState from './reducers/app/appInitialState';
 import Main from './screens/main';
 const RouterWithRedux = connect()(Router);
 
+var FactView = require('./components/FactsView');
+
 function getInitialState() {
   return {
     app: new AppInitialState(),
@@ -49,20 +51,8 @@ class SpotBeat extends Component {
     const store = configureStore(getInitialState());
     return (
       <Provider store={store}>
-          <View style={styles.container}>
-            <Text style={styles.welcome}>
-              Welcome to React Native!
-            </Text>
-            <Text style={styles.instructions}>
-              To get started, edit index.ios.js
-            </Text>
-            <Text style={styles.instructions}>
-              Press Cmd+R to reload,{'\n'}
-              Cmd+D or shake for dev menu
-            </Text>
-            <Main/>
-          </View>
-       </Provider>
+          <FactView title="Very cool title" body="Did you know that blabla blabla blabla blabla blabla blabla blabla"/>
+      </Provider>
     );
   }
 }

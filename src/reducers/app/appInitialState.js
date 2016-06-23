@@ -12,7 +12,8 @@ const InitialState = Record({
         startTime: "",
         duration: 20,
         type: "facts",
-        text: "Cool fact"
+        title:"Cool fact",
+        body:"Did you know that...." 
       },
       {
         startTime: "",

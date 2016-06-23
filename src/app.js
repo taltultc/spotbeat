@@ -44,6 +44,7 @@ class SpotBeat extends Component {
       (data) => console.log(data)
     );
   }
+
   render() {
     const store = configureStore(getInitialState());
     return (

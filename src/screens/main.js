@@ -57,9 +57,11 @@ class Main extends Component {
   constructor(props){
     super(props);
     this.state = {
-      currentComp:""
-    }
+      currentComp:"",
+      index:2
+    };
     this.time = 0;
+    this.songID = "";
     this.interaction = "";
     this.props.actions.getInitData();
   }
@@ -68,32 +70,39 @@ class Main extends Component {
     var subscription = NativeAppEventEmitter.addListener(
       'ACREvent',
       (data) => {
-        console.log("Main",data.message);
+        console.log("Main",data);
+
         if(data.metadata){
           _this.props.actions.updateCurrentSongId(data.metadata.music[0].acrid);
           _this.props.actions.updateCurrentTimestamp(data.metadata.music[0].play_offset_ms);
           _this.time = data.metadata.music[0].play_offset_ms;
+          _this.songID = data.metadata.music[0].acrid;
         }
       }
     );
 
     setInterval(()=>{
       //console.log("ppppp",_this.props.app.get("events").get("song_id").get(0).get("startTime"));
-      var size = _this.props.app.get("events").get("song_id").toJS();
-      for(var i=0;i<size.length;i++){
-        let s = _this.props.app.get("events").get("song_id").get(i).get("startTime");
-        if(_this.time == s ||
-          ( (_this.time - 1000) < s &&  s < (_this.time + 2000))
-        ){
-          //alert("trigger event");
-            if(_this.props.app.get("events").get("song_id").get(i).get("type") == "facts"){
-              _this.setState({currentComp:'FactsView'});
-            }else if(_this.props.app.get("events").get("song_id").get(i).get("type") == "trivia"){
-              _this.setState({currentComp:'Trivia'});
-            }
+
+      if(_this.songID){
+
+        var size = _this.props.app.get("events").get(this.songID).toJS();
+        for(var i=0;i<size.length;i++){
+          let s = _this.props.app.get("events").get(this.songID).get(i).get("startTime");
+          if(_this.time == s ||
+            ( (_this.time - 1000) < s &&  s < (_this.time + 2000))
+          ){
+
+              if(_this.props.app.get("events").get(this.songID).get(i).get("type") == "facts"){
+                _this.setState({currentComp:'FactsView',index:i});
+              }else if(_this.props.app.get("events").get(this.songID).get(i).get("type") == "trivia"){
+                _this.setState({currentComp:'Trivia',index:i});
+              }else if(_this.props.app.get("events").get(this.songID).get(i).get("type") =="gif"){
+                _this.setState({currentComp:'gif',index:i});
+              }
+          }
         }
       }
-
 
 
       _this.time+=1000;
@@ -102,22 +111,31 @@ class Main extends Component {
   componentWillReceiveProps(nextProps){
     console.log("currentSongId",nextProps.app.get("currentSongId"));
   }
-  updateTimer(time){
-    this.time = time;
 
-  }
   componentWillReceiveProps(nextProps) {
     this.getScene();
   }
+  onAnswerClicked(){
+    this.setState({
+      currentComp:null,
+    })
+  }
   getScene(){
-    if(this.state.currentComp == "FactsView"){
-      return(
-        <FactView title="sdfsd" body="body" />
-      );
-    }else if(this.state.currentComp == "Trivia"){
-      return(
-        <TriviaView/>
-      );
+    if(this.props.app.get("events").get(this.songID)){
+      let eventData = this.props.app.get("events").get(this.songID).get(this.state.index);
+      if(this.state.currentComp == "FactsView"){
+        return(
+          <FactView title="sdfsd" body="body" />
+        );
+      }else if(this.state.currentComp == "Trivia"){
+
+        return(
+          <TriviaView question={eventData.get("question")} answers={eventData.get("answers").toJS()} onAnswerClicked={this.onAnswerClicked.bind(this)} timerDuration={10}  correctAnswerIndex={eventData.get("correctAnswerIndex")}/>
+        );
+      }else if(this.state.currentComp == "gif"){
+        <GifView gifUrl={eventData.get("gifUrl")}/>
+      }
+
     }
 
   }

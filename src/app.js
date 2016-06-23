@@ -41,10 +41,7 @@ function getInitialState() {
 class SpotBeat extends Component {
   componentDidMount() {
     ACR.startDetect();
-    //var subscription = NativeAppEventEmitter.addListener(
-    //  'ACREvent',
-    //  (data) => console.log(data)
-    //);
+
   }
 
   render() {

@@ -21,8 +21,8 @@ RCT_EXPORT_METHOD(startDetect)
   // Your implementation here
     _config = [[ACRCloudConfig alloc] init];
 
-    _config.accessKey = @"be1e9220586e7117cc5cce04c2e7004a";
-    _config.accessSecret = @"0NGR6EU4b2s1VAJ3D89uoG7vLapHFd8SVrxPs5PS";
+    _config.accessKey = @"866142c2c70bd38e779c46f2007086fb";
+    _config.accessSecret = @"XLuttOp1C0fDlDdilzPfPOVPXPZGMk9E9hgoEcHy";
     _config.host = @"ap-southeast-1.api.acrcloud.com";
 
     //if you want to identify your offline db, set the recMode to "rec_mode_local"

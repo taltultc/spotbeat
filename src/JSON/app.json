@@ -1,22 +1,18 @@
 {
   "93efe43a775b8791d2c3358816992e2e": [
     {
-      "startTime": 10000,
-      "duration": 20000,
+      "startTime": 30000,
       "type": "facts", // facts, trivia, gif, lyrics
       "title": "Fun Fact",
-      "body": "What's my name incorporates themes of sexual intercourse and romance",
-      "imageUrl": "http://kids.nationalgeographic.com/content/dam/kids/photos/articles/Science/H-P/heart.jpg"
+      "body": "The sqaure root of 69 is 8.30662"
     },
     {
-      "startTime": 20000,
-      "duration": 20000,
+      "startTime": 47000,
       "type": "gif", // facts, trivia, gif, lyrics
-      "gifUrl": "http://www.webextensionline.com/wp-content/uploads/heart-wiidescreen.jpg"
+      "gifUrl": "http://gifstumblr.com/images/why-traffic-jams-happen_784.gif"
     },
     {
-      "startTime": 40000,
-      "duration": 20000,
+      "startTime": 62000,
       "type": "trivia", // facts, trivia, gif, lyrics
       "question": "What's my name?",
       "answers": [
@@ -26,8 +22,13 @@
         "Martin Konicek"
       ],
       "correctAnswerIndex": 2
+    },
+    {
+      "startTime": 80000,
+      "type": "facts", // facts, trivia, gif, lyrics
+      "title": "Amazing Fun Fact!",
+      "body": "99% of teams winning hackathons do music related project!"
     }
-
 
   ]
 }

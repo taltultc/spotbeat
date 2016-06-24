@@ -87,7 +87,7 @@ class Main extends Component {
     setInterval(()=>{
       //console.log("ppppp",_this.props.app.get("events").get("song_id").get(0).get("startTime"));
 
-      if(_this.songID){
+      if(_this.songID && _this.props.app.get("events").get(this.songID)){
 
         var size = _this.props.app.get("events").get(this.songID).toJS();
         for(var i=0;i<size.length;i++){
@@ -137,7 +137,9 @@ class Main extends Component {
           <TriviaView question={eventData.get("question")} answers={eventData.get("answers").toJS()} onAnswerClicked={this.onAnswerClicked.bind(this)} timerDuration={10}  correctAnswerIndex={eventData.get("correctAnswerIndex")}/>
         );
       }else if(this.state.currentComp == "gif"){
-        <GifView gifUrl={eventData.get("gifUrl")}/>
+        return (
+          <GifView gifUrl={eventData.get("gifUrl")}/>
+        )
       }
 
     }else{
